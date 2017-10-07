@@ -133,7 +133,8 @@ var dragularService = function ( $rootScope, $compile ) {
 				cancel: cancel,
 				remove: remove,
 				destroy: destroy,
-				dragging: false
+        dragging: false,
+        registerEvents: registerEvents
 			};
 
 		processServiceArguments(); // both arguments (containers and options) are optional, this function handle this
@@ -634,7 +635,7 @@ var dragularService = function ( $rootScope, $compile ) {
 
 				if ( g( o.removeOnSpill ) === true ) {
 					type === 'over' ? spillOver() : spillOut();
-				}	
+				}
 
 				function notify( scope ){
 					scope.$emit( o.eventNames[ 'dragular' + type ], shared.item, shared.lastDropTarget, shared.source, e );
